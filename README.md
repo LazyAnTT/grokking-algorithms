@@ -4,6 +4,10 @@ This is the code in my book [Grokking Algorithms](https://www.manning.com/bharga
 
 Check out [Python Tutor](http://pythontutor.com/), a great website that guides you through Python code line by line.
 
+## Languages
+
+This checkout keeps algorithm solutions in C/C++, JavaScript (including ES6), TypeScript, PHP, and Python. Examples are organized by chapter and language.
+
 ## Errata
 
 [Here's the errata page](http://adit.io/errata.html).

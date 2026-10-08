@@ -1,6 +1,6 @@
 ## Digit recognition with knn
 
-Here's some example Matlab code that shows KNN in action to guess handwritten digits. Here's what the output looks like:
+The original MATLAB implementation has been removed from this checkout. The dataset and example output images are retained for reference. The images show KNN guessing handwritten digits:
 
 ![](https://github.com/egonSchiele/grokking_algorithms/blob/master/10_knn/images/17_correct_500_comparisons.png)
 
