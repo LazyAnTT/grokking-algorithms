@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Array creation benchmarks</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">ALGORITHM LAB</p>
+      <h1>Array creation benchmarks</h1>
+      <p>Compare the time and memory needed to build sorted number lists.</p>
+      <p id="metadata" class="muted"></p>
+    </header>
+    <section class="controls" aria-label="Chart controls">
+      <label>Measurement
+        <select id="metric">
+          <option value="microsecondsPerArray">Runtime · µs per array</option>
+          <option value="constructionBytesPerArray">Construction-end heap · bytes per array</option>
+          <option value="retainedBytesPerArray">Retained heap · bytes per array</option>
+        </select>
+      </label>
+      <label>X-axis scale
+        <select id="x-scale"><option value="linear">Linear</option><option value="log" selected>Logarithmic</option></select>
+      </label>
+      <label>Y-axis scale
+        <select id="y-scale"><option value="linear">Linear</option><option value="log">Logarithmic</option></select>
+      </label>
+      <fieldset>
+        <legend>Visible methods</legend>
+        <label class="method push"><input type="checkbox" value="push" checked> Push</label>
+        <label class="method preallocated"><input type="checkbox" value="preallocated" checked> Preallocated</label>
+        <label class="method arrayFrom"><input type="checkbox" value="arrayFrom" checked> Array.from</label>
+      </fieldset>
+    </section>
+    <p id="status" role="status">Loading benchmark data…</p>
+    <section class="panel" aria-label="Benchmark chart">
+      <h2 id="chart-heading">Runtime</h2>
+      <p id="metric-note" class="muted"></p>
+      <svg id="chart" viewBox="0 0 960 490" role="img" aria-labelledby="svg-title svg-description"></svg>
+      <p class="muted">Hover over or focus a point to see its exact value. The table below shows the same data.</p>
+    </section>
+    <section class="panel">
+      <h2>Measurements</h2>
+      <div class="table-wrap"><table id="results"><caption id="table-caption"></caption><thead></thead><tbody></tbody></table></div>
+    </section>
+    <footer>
+      <p>Loads <code>../01_introduction_to_algorithms/ts/benchmark-results.json</code>. Rerun the benchmark and refresh this page to update it.</p>
+      <label>Or load a benchmark JSON file: <input id="file" type="file" accept=".json,application/json"></label>
+      <p class="muted">Measurements depend on Node version and system load. Construction-end heap is a snapshot, not peak memory or total allocations. All three methods have O(n) time and space complexity.</p>
+    </footer>
+  </main>
+</body>
+</html>
