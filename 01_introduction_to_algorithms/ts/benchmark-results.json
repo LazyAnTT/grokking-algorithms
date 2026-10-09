@@ -1,0 +1,590 @@
+{
+  "metadata": {
+    "measuredAt": "2026-10-09T10:00:32.859Z",
+    "node": "v21.6.2",
+    "platform": "linux x64",
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13620H",
+    "repetitions": 10000,
+    "runtimeRounds": 7,
+    "memoryArrays": 2000,
+    "memoryRounds": 5
+  },
+  "rows": [
+    {
+      "length": 4,
+      "method": "push",
+      "runtimeMs": 0.9998930000000001,
+      "microsecondsPerArray": 0.09998930000000002,
+      "constructionBytesPerArray": 184.152,
+      "retainedBytesPerArray": 184,
+      "runtimeSamplesMs": [
+        4.466562999999994,
+        1.569109999999995,
+        0.9998930000000001,
+        0.7946880000000078,
+        0.6518870000000021,
+        1.0189909999999998,
+        0.907582000000005
+      ],
+      "constructionSamplesBytesPerArray": [
+        184.888,
+        304.16,
+        184.152,
+        184.152,
+        184.152
+      ],
+      "retainedSamplesBytesPerArray": [
+        64.616,
+        184.028,
+        184,
+        184.096,
+        184
+      ],
+      "checksum": 332000
+    },
+    {
+      "length": 4,
+      "method": "preallocated",
+      "runtimeMs": 1.0109309999999994,
+      "microsecondsPerArray": 0.10109309999999994,
+      "constructionBytesPerArray": 80.128,
+      "retainedBytesPerArray": 80,
+      "runtimeSamplesMs": [
+        2.2306099999999986,
+        0.8715229999999963,
+        1.181841999999989,
+        0.8304480000000041,
+        0.49975299999999834,
+        1.0318579999999997,
+        1.0109309999999994
+      ],
+      "constructionSamplesBytesPerArray": [
+        80.86,
+        119.104,
+        80.12,
+        80.08,
+        80.128
+      ],
+      "retainedSamplesBytesPerArray": [
+        -39.22,
+        80.028,
+        80,
+        80.096,
+        80
+      ],
+      "checksum": 332000
+    },
+    {
+      "length": 4,
+      "method": "arrayFrom",
+      "runtimeMs": 5.647700999999998,
+      "microsecondsPerArray": 0.5647700999999998,
+      "constructionBytesPerArray": 232.932,
+      "retainedBytesPerArray": 80.028,
+      "runtimeSamplesMs": [
+        6.3558590000000095,
+        5.677810999999991,
+        5.657490999999993,
+        5.647700999999998,
+        5.5368469999999945,
+        5.4951910000000055,
+        5.608542
+      ],
+      "constructionSamplesBytesPerArray": [
+        181.052,
+        233.08,
+        232.932,
+        232.892,
+        237.788
+      ],
+      "retainedSamplesBytesPerArray": [
+        79.048,
+        80.028,
+        80,
+        80.096,
+        80.4
+      ],
+      "checksum": 332000
+    },
+    {
+      "length": 16,
+      "method": "push",
+      "runtimeMs": 1.9058409999999952,
+      "microsecondsPerArray": 0.19058409999999953,
+      "constructionBytesPerArray": 184.152,
+      "retainedBytesPerArray": 184,
+      "runtimeSamplesMs": [
+        1.9058409999999952,
+        1.2608000000000033,
+        2.1876199999999955,
+        2.003320000000002,
+        1.8482900000000058,
+        1.3981930000000062,
+        2.0773209999999978
+      ],
+      "constructionSamplesBytesPerArray": [
+        184.888,
+        304.16,
+        184.152,
+        184.152,
+        184.152
+      ],
+      "retainedSamplesBytesPerArray": [
+        183.284,
+        184.028,
+        184,
+        184.096,
+        184
+      ],
+      "checksum": 1328000
+    },
+    {
+      "length": 16,
+      "method": "preallocated",
+      "runtimeMs": 0.942978999999994,
+      "microsecondsPerArray": 0.09429789999999941,
+      "constructionBytesPerArray": 296.932,
+      "retainedBytesPerArray": 176.004,
+      "runtimeSamplesMs": [
+        1.9120259999999973,
+        0.9870209999999986,
+        0.942978999999994,
+        0.8685739999999953,
+        0.8166200000000003,
+        0.9285970000000106,
+        2.1931360000000097
+      ],
+      "constructionSamplesBytesPerArray": [
+        176.924,
+        296.932,
+        296.932,
+        296.316,
+        297.5
+      ],
+      "retainedSamplesBytesPerArray": [
+        56.288,
+        176.004,
+        175.976,
+        176.276,
+        176.048
+      ],
+      "checksum": 1328000
+    },
+    {
+      "length": 16,
+      "method": "arrayFrom",
+      "runtimeMs": 13.644227,
+      "microsecondsPerArray": 1.3644227,
+      "constructionBytesPerArray": 323.364,
+      "retainedBytesPerArray": 176,
+      "runtimeSamplesMs": [
+        14.836000999999996,
+        14.327210000000008,
+        13.731358,
+        13.460584000000011,
+        13.644227,
+        13.487604000000005,
+        13.14000200000001
+      ],
+      "constructionSamplesBytesPerArray": [
+        279.908,
+        352.736,
+        272.14,
+        323.364,
+        353.472
+      ],
+      "retainedSamplesBytesPerArray": [
+        56.3,
+        176.028,
+        46.408,
+        176.096,
+        176
+      ],
+      "checksum": 1328000
+    },
+    {
+      "length": 64,
+      "method": "push",
+      "runtimeMs": 5.264610000000005,
+      "microsecondsPerArray": 0.5264610000000004,
+      "constructionBytesPerArray": 1217.628,
+      "retainedBytesPerArray": 704,
+      "runtimeSamplesMs": [
+        5.43686799999999,
+        5.550472999999997,
+        5.076953000000003,
+        5.044047000000006,
+        5.378765999999999,
+        5.264610000000005,
+        5.087089999999989
+      ],
+      "constructionSamplesBytesPerArray": [
+        926.544,
+        875.152,
+        1217.628,
+        1217.732,
+        1217.628
+      ],
+      "retainedSamplesBytesPerArray": [
+        649.852,
+        704.028,
+        704,
+        563.292,
+        704
+      ],
+      "checksum": 5312000
+    },
+    {
+      "length": 64,
+      "method": "preallocated",
+      "runtimeMs": 2.315382999999997,
+      "microsecondsPerArray": 0.2315382999999997,
+      "constructionBytesPerArray": 681.816,
+      "retainedBytesPerArray": 560.004,
+      "runtimeSamplesMs": [
+        2.4781380000000013,
+        2.094784000000004,
+        2.315382999999997,
+        2.1696600000000075,
+        2.315727999999993,
+        2.3906139999999994,
+        2.3050499999999943
+      ],
+      "constructionSamplesBytesPerArray": [
+        560.512,
+        681.816,
+        681.968,
+        623.78,
+        681.896
+      ],
+      "retainedSamplesBytesPerArray": [
+        558.632,
+        560.004,
+        559.976,
+        560.324,
+        560.048
+      ],
+      "checksum": 5312000
+    },
+    {
+      "length": 64,
+      "method": "arrayFrom",
+      "runtimeMs": 43.54491999999999,
+      "microsecondsPerArray": 4.354491999999999,
+      "constructionBytesPerArray": 785.26,
+      "retainedBytesPerArray": 559.976,
+      "runtimeSamplesMs": [
+        51.817634,
+        55.542962,
+        45.362885000000006,
+        41.29353099999997,
+        43.13552499999997,
+        43.02153800000002,
+        43.54491999999999
+      ],
+      "constructionSamplesBytesPerArray": [
+        595.16,
+        784.808,
+        785.584,
+        785.26,
+        785.512
+      ],
+      "retainedSamplesBytesPerArray": [
+        505.22,
+        559.724,
+        559.976,
+        560.276,
+        560.048
+      ],
+      "checksum": 5312000
+    },
+    {
+      "length": 256,
+      "method": "push",
+      "runtimeMs": 21.765614,
+      "microsecondsPerArray": 2.1765613999999998,
+      "constructionBytesPerArray": 7214.82,
+      "retainedBytesPerArray": 2912.028,
+      "runtimeSamplesMs": [
+        26.508294000000006,
+        30.201172000000014,
+        21.765614,
+        20.929310999999984,
+        20.835238000000004,
+        20.129411000000005,
+        23.983890000000002
+      ],
+      "constructionSamplesBytesPerArray": [
+        3162.488,
+        3530.82,
+        7214.892,
+        7214.892,
+        7214.82
+      ],
+      "retainedSamplesBytesPerArray": [
+        2890.736,
+        2912.028,
+        2911.976,
+        2912.276,
+        2912.048
+      ],
+      "checksum": 21248000
+    },
+    {
+      "length": 256,
+      "method": "preallocated",
+      "runtimeMs": 6.976848000000004,
+      "microsecondsPerArray": 0.6976848000000003,
+      "constructionBytesPerArray": 2112.32,
+      "retainedBytesPerArray": 2096.028,
+      "runtimeSamplesMs": [
+        7.484739000000005,
+        6.976848000000004,
+        7.566913,
+        6.697668000000007,
+        6.890043000000006,
+        6.727874,
+        6.987181000000007
+      ],
+      "constructionSamplesBytesPerArray": [
+        2100.592,
+        2105.244,
+        2243.5,
+        2112.32,
+        2112.32
+      ],
+      "retainedSamplesBytesPerArray": [
+        2018.296,
+        2096.028,
+        2096.28,
+        2096.096,
+        2096
+      ],
+      "checksum": 21248000
+    },
+    {
+      "length": 256,
+      "method": "arrayFrom",
+      "runtimeMs": 157.913099,
+      "microsecondsPerArray": 15.791309899999998,
+      "constructionBytesPerArray": 2320.908,
+      "retainedBytesPerArray": 2095.976,
+      "runtimeSamplesMs": [
+        152.73169099999998,
+        165.108542,
+        155.812708,
+        157.913099,
+        163.22687600000006,
+        157.75943799999993,
+        159.57872299999985
+      ],
+      "constructionSamplesBytesPerArray": [
+        2158.428,
+        2235.964,
+        2320.98,
+        2320.98,
+        2320.908
+      ],
+      "retainedSamplesBytesPerArray": [
+        2019.092,
+        2095.748,
+        2095.976,
+        2096.276,
+        2096.048
+      ],
+      "checksum": 21248000
+    },
+    {
+      "length": 1024,
+      "method": "push",
+      "runtimeMs": 81.13505900000001,
+      "microsecondsPerArray": 8.113505900000002,
+      "constructionBytesPerArray": 12693.684,
+      "retainedBytesPerArray": 10359.976,
+      "runtimeSamplesMs": [
+        91.04009599999999,
+        76.725087,
+        76.89009700000003,
+        81.13505900000001,
+        102.80756400000001,
+        116.20571900000004,
+        78.74418400000002
+      ],
+      "constructionSamplesBytesPerArray": [
+        10637.288,
+        12588.192,
+        12702.656,
+        12693.684,
+        12702.584
+      ],
+      "retainedSamplesBytesPerArray": [
+        10308.528,
+        10359.724,
+        10359.976,
+        10360.276,
+        10360.048
+      ],
+      "checksum": 84992000
+    },
+    {
+      "length": 1024,
+      "method": "preallocated",
+      "runtimeMs": 30.620227,
+      "microsecondsPerArray": 3.0620227,
+      "constructionBytesPerArray": 8360.904,
+      "retainedBytesPerArray": 8239.976,
+      "runtimeSamplesMs": [
+        32.742119,
+        21.79414899999999,
+        26.574934000000013,
+        25.297144000000003,
+        44.101011,
+        32.742628999999965,
+        30.620227
+      ],
+      "constructionSamplesBytesPerArray": [
+        8267.932,
+        8241.732,
+        8361.312,
+        8360.904,
+        8361.24
+      ],
+      "retainedSamplesBytesPerArray": [
+        8124.332,
+        8239.748,
+        8239.976,
+        8240.276,
+        8240.048
+      ],
+      "checksum": 84992000
+    },
+    {
+      "length": 1024,
+      "method": "arrayFrom",
+      "runtimeMs": 677.4877689999998,
+      "microsecondsPerArray": 67.74877689999998,
+      "constructionBytesPerArray": 8395.432,
+      "retainedBytesPerArray": 8239.976,
+      "runtimeSamplesMs": [
+        660.533668,
+        659.357564,
+        680.472276,
+        695.0704090000004,
+        677.4877689999998,
+        664.9720439999996,
+        696.1197619999994
+      ],
+      "constructionSamplesBytesPerArray": [
+        8301.252,
+        8347.668,
+        8395.84,
+        8395.432,
+        8395.768
+      ],
+      "retainedSamplesBytesPerArray": [
+        8168.112,
+        8239.724,
+        8239.976,
+        8240.276,
+        8240.048
+      ],
+      "checksum": 84992000
+    },
+    {
+      "length": 2048,
+      "method": "push",
+      "runtimeMs": 184.99700900000016,
+      "microsecondsPerArray": 18.49970090000002,
+      "constructionBytesPerArray": 24008.992,
+      "retainedBytesPerArray": 23600,
+      "runtimeSamplesMs": [
+        178.78553699999998,
+        186.025129,
+        193.67548799999997,
+        209.38561900000002,
+        170.2344690000001,
+        174.23416300000008,
+        184.99700900000016
+      ],
+      "constructionSamplesBytesPerArray": [
+        23933.372,
+        24122.636,
+        23986.868,
+        24031.052,
+        24008.992
+      ],
+      "retainedSamplesBytesPerArray": [
+        23537.276,
+        23599.748,
+        23600,
+        23600.3,
+        23600.048
+      ],
+      "checksum": 169984000
+    },
+    {
+      "length": 2048,
+      "method": "preallocated",
+      "runtimeMs": 43.849306,
+      "microsecondsPerArray": 4.3849306,
+      "constructionBytesPerArray": 16437.968,
+      "retainedBytesPerArray": 16431.976,
+      "runtimeSamplesMs": [
+        43.849306,
+        46.152000000000015,
+        42.715104999999994,
+        48.824787999999984,
+        41.990373999999974,
+        40.23623300000003,
+        46.66584
+      ],
+      "constructionSamplesBytesPerArray": [
+        16463.56,
+        16439.076,
+        16437.96,
+        16437.912,
+        16437.968
+      ],
+      "retainedSamplesBytesPerArray": [
+        16367.684,
+        16431.748,
+        16431.976,
+        16432.3,
+        16432.048
+      ],
+      "checksum": 169984000
+    },
+    {
+      "length": 2048,
+      "method": "arrayFrom",
+      "runtimeMs": 1327.1198949999998,
+      "microsecondsPerArray": 132.7119895,
+      "constructionBytesPerArray": 16451.756,
+      "retainedBytesPerArray": 16432,
+      "runtimeSamplesMs": [
+        1267.580133,
+        1270.6986960000002,
+        1327.1198949999998,
+        1321.0422330000001,
+        1342.645128,
+        1474.3004069999997,
+        1365.4512270000014
+      ],
+      "constructionSamplesBytesPerArray": [
+        16477.264,
+        16451.756,
+        16450.252,
+        16455.356,
+        16449.908
+      ],
+      "retainedSamplesBytesPerArray": [
+        16363.768,
+        16431.748,
+        16432,
+        16432.276,
+        16432.048
+      ],
+      "checksum": 169984000
+    }
+  ]
+}
