@@ -1,0 +1,2246 @@
+{
+  "schemaVersion": 2,
+  "metadata": {
+    "title": "Selection sort",
+    "operation": "sort",
+    "suite": "selection-sort",
+    "measuredAt": "2026-10-10T06:44:26.781Z",
+    "node": "v21.6.2",
+    "platform": "linux x64",
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13620H",
+    "rounds": 3,
+    "samplingInterval": 512,
+    "quick": false,
+    "notes": "Same seeded shuffled 1..n for all methods. Every invocation receives an input slice, included in measurement; internal copies also count. Built-in numeric Array.sort is a general-purpose sorting baseline, not selection sort."
+  },
+  "metrics": [
+    {
+      "key": "microsecondsPerOperation",
+      "label": "Runtime",
+      "unit": "µs / operation",
+      "description": "Median unprofiled runtime, including the suite input-copy policy and result consumption."
+    },
+    {
+      "key": "retainedBytesPerOperation",
+      "label": "Retained heap",
+      "unit": "B / result",
+      "description": "Heap increase after GC with results retained; holder storage excluded. Approximate, includes measurement noise."
+    },
+    {
+      "key": "estimatedPeakHeapIncreaseBytes",
+      "label": "Estimated peak heap increase",
+      "unit": "B / batch",
+      "description": "Median observed high-water heap increase over a non-retaining profiling batch. Includes heap samples after calls and pre/post-GC readings. Not exact peak, not divided by operations, and includes profiling overhead."
+    },
+    {
+      "key": "estimatedAllocatedBytesPerOperation",
+      "label": "Estimated total allocations",
+      "unit": "B / operation",
+      "description": "V8 sampling estimate attributed to runOperation and descendants, including collected objects. Not exact bytes; zero can mean no sampled allocation."
+    },
+    {
+      "key": "heapSnapshotBytesPerOperation",
+      "label": "Heap snapshot after construction",
+      "unit": "B / result",
+      "description": "End-of-retaining-batch heap reading before explicit GC. Noisy snapshot, not peak memory or total allocations."
+    }
+  ],
+  "rows": [
+    {
+      "length": 4,
+      "method": "mySelectionSort",
+      "category": "custom",
+      "repetitions": 10000,
+      "memoryCount": 1000,
+      "profileCount": 1000,
+      "microsecondsPerOperation": 0.9197501000000017,
+      "retainedBytesPerOperation": 184.056,
+      "heapSnapshotBytesPerOperation": 560.832,
+      "estimatedPeakHeapIncreaseBytes": 803376,
+      "estimatedAllocatedBytesPerOperation": 491.664,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 0.9197501000000017,
+          "samples": [
+            1.2249457999999989,
+            0.8167297000000006,
+            0.9197501000000017
+          ],
+          "checksum": 240000,
+          "warmupChecksum": 2400
+        },
+        "retained": {
+          "retainedBytesPerOperation": 184.056,
+          "heapSnapshotBytesPerOperation": 560.832,
+          "samples": [
+            180.376,
+            187.208,
+            184.056
+          ],
+          "snapshotSamples": [
+            574.192,
+            560.832,
+            492.856
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 803376,
+          "samples": [
+            803376,
+            744040,
+            1042152
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 491.664,
+          "samples": [
+            502.224,
+            470.208,
+            491.664
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        }
+      }
+    },
+    {
+      "length": 4,
+      "method": "mySelectionSort2",
+      "category": "custom",
+      "repetitions": 10000,
+      "memoryCount": 1000,
+      "profileCount": 1000,
+      "microsecondsPerOperation": 2.7686187000000007,
+      "retainedBytesPerOperation": 81.024,
+      "heapSnapshotBytesPerOperation": 926.112,
+      "estimatedPeakHeapIncreaseBytes": 1078200,
+      "estimatedAllocatedBytesPerOperation": 879.96,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 2.7686187000000007,
+          "samples": [
+            2.7686187000000007,
+            2.864327400000002,
+            2.5716136000000005
+          ],
+          "checksum": 240000,
+          "warmupChecksum": 2400
+        },
+        "retained": {
+          "retainedBytesPerOperation": 81.024,
+          "heapSnapshotBytesPerOperation": 926.112,
+          "samples": [
+            75.6,
+            83.288,
+            81.024
+          ],
+          "snapshotSamples": [
+            917.584,
+            932.768,
+            926.112
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1078200,
+          "samples": [
+            1078200,
+            1030960,
+            1203472
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 879.96,
+          "samples": [
+            868.928,
+            884.8,
+            879.96
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        }
+      }
+    },
+    {
+      "length": 4,
+      "method": "mySelectionSort3",
+      "category": "custom",
+      "repetitions": 10000,
+      "memoryCount": 1000,
+      "profileCount": 1000,
+      "microsecondsPerOperation": 2.9638960999999995,
+      "retainedBytesPerOperation": 80,
+      "heapSnapshotBytesPerOperation": 1071.904,
+      "estimatedPeakHeapIncreaseBytes": 1101192,
+      "estimatedAllocatedBytesPerOperation": 1011.104,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 2.9638960999999995,
+          "samples": [
+            2.9638960999999995,
+            2.474289400000001,
+            6.4344109000000005
+          ],
+          "checksum": 240000,
+          "warmupChecksum": 2400
+        },
+        "retained": {
+          "retainedBytesPerOperation": 80,
+          "heapSnapshotBytesPerOperation": 1071.904,
+          "samples": [
+            75.76,
+            80,
+            209.056
+          ],
+          "snapshotSamples": [
+            1071.904,
+            1103.872,
+            1069.896
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1101192,
+          "samples": [
+            1101192,
+            1073576,
+            1247664
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 1011.104,
+          "samples": [
+            1011.104,
+            988.088,
+            1017.448
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        }
+      }
+    },
+    {
+      "length": 4,
+      "method": "mySelectionSort4",
+      "category": "custom",
+      "repetitions": 10000,
+      "memoryCount": 1000,
+      "profileCount": 1000,
+      "microsecondsPerOperation": 2.9511526000000003,
+      "retainedBytesPerOperation": 80.128,
+      "heapSnapshotBytesPerOperation": 821.64,
+      "estimatedPeakHeapIncreaseBytes": 1073536,
+      "estimatedAllocatedBytesPerOperation": 763.688,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 2.9511526000000003,
+          "samples": [
+            2.9511526000000003,
+            3.600714099999999,
+            2.5283294000000014
+          ],
+          "checksum": 240000,
+          "warmupChecksum": 2400
+        },
+        "retained": {
+          "retainedBytesPerOperation": 80.128,
+          "heapSnapshotBytesPerOperation": 821.64,
+          "samples": [
+            75.696,
+            80.128,
+            82.208
+          ],
+          "snapshotSamples": [
+            821.64,
+            797.672,
+            863.616
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1073536,
+          "samples": [
+            1078912,
+            1072088,
+            1073536
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 763.688,
+          "samples": [
+            757.336,
+            782.176,
+            763.688
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        }
+      }
+    },
+    {
+      "length": 4,
+      "method": "referenceSelectionSort",
+      "category": "reference",
+      "repetitions": 10000,
+      "memoryCount": 1000,
+      "profileCount": 1000,
+      "microsecondsPerOperation": 1.1435282999999998,
+      "retainedBytesPerOperation": 184.056,
+      "heapSnapshotBytesPerOperation": 550.576,
+      "estimatedPeakHeapIncreaseBytes": 803328,
+      "estimatedAllocatedBytesPerOperation": 508.664,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 1.1435282999999998,
+          "samples": [
+            1.4331197000000004,
+            1.1435282999999998,
+            1.0391882000000008
+          ],
+          "checksum": 240000,
+          "warmupChecksum": 2400
+        },
+        "retained": {
+          "retainedBytesPerOperation": 184.056,
+          "heapSnapshotBytesPerOperation": 550.576,
+          "samples": [
+            181.344,
+            187.512,
+            184.056
+          ],
+          "snapshotSamples": [
+            508.096,
+            628.696,
+            550.576
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 803328,
+          "samples": [
+            803328,
+            744040,
+            1047944
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 508.664,
+          "samples": [
+            513.096,
+            508.664,
+            481.544
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        }
+      }
+    },
+    {
+      "length": 4,
+      "method": "nativeNumericSort",
+      "category": "built-in",
+      "repetitions": 10000,
+      "memoryCount": 1000,
+      "profileCount": 1000,
+      "microsecondsPerOperation": 0.6407474000000007,
+      "retainedBytesPerOperation": 74.248,
+      "heapSnapshotBytesPerOperation": 1018.296,
+      "estimatedPeakHeapIncreaseBytes": 1202736,
+      "estimatedAllocatedBytesPerOperation": 1035.48,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 0.6407474000000007,
+          "samples": [
+            0.7934855999999996,
+            0.5616944000000004,
+            0.6407474000000007
+          ],
+          "checksum": 240000,
+          "warmupChecksum": 2400
+        },
+        "retained": {
+          "retainedBytesPerOperation": 74.248,
+          "heapSnapshotBytesPerOperation": 1018.296,
+          "samples": [
+            74.248,
+            6.424,
+            150.352
+          ],
+          "snapshotSamples": [
+            1018.296,
+            1018.296,
+            1087.176
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1202736,
+          "samples": [
+            1202736,
+            1078048,
+            1331488
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 1035.48,
+          "samples": [
+            1034.72,
+            1046.704,
+            1035.48
+          ],
+          "checksum": 24000,
+          "warmupChecksum": 2400
+        }
+      }
+    },
+    {
+      "length": 16,
+      "method": "mySelectionSort",
+      "category": "custom",
+      "repetitions": 7812,
+      "memoryCount": 1000,
+      "profileCount": 1000,
+      "microsecondsPerOperation": 4.707809395801333,
+      "retainedBytesPerOperation": 183.952,
+      "heapSnapshotBytesPerOperation": 1335.04,
+      "estimatedPeakHeapIncreaseBytes": 1030968,
+      "estimatedAllocatedBytesPerOperation": 1249.96,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 4.707809395801333,
+          "samples": [
+            5.6184871991807475,
+            4.707809395801333,
+            3.8139345878136193
+          ],
+          "checksum": 749952,
+          "warmupChecksum": 9600
+        },
+        "retained": {
+          "retainedBytesPerOperation": 183.952,
+          "heapSnapshotBytesPerOperation": 1335.04,
+          "samples": [
+            181.4,
+            183.952,
+            186.136
+          ],
+          "snapshotSamples": [
+            471.184,
+            1425.384,
+            1335.04
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1030968,
+          "samples": [
+            1106160,
+            1030968,
+            1030968
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 1249.96,
+          "samples": [
+            1272.328,
+            1239.008,
+            1249.96
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        }
+      }
+    },
+    {
+      "length": 16,
+      "method": "mySelectionSort2",
+      "category": "custom",
+      "repetitions": 7812,
+      "memoryCount": 1000,
+      "profileCount": 1000,
+      "microsecondsPerOperation": 5.307781746031746,
+      "retainedBytesPerOperation": 176,
+      "heapSnapshotBytesPerOperation": 380.104,
+      "estimatedPeakHeapIncreaseBytes": 1078192,
+      "estimatedAllocatedBytesPerOperation": 2161.536,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 5.307781746031746,
+          "samples": [
+            5.76348028673835,
+            5.018272145417306,
+            5.307781746031746
+          ],
+          "checksum": 749952,
+          "warmupChecksum": 9600
+        },
+        "retained": {
+          "retainedBytesPerOperation": 176,
+          "heapSnapshotBytesPerOperation": 380.104,
+          "samples": [
+            173.528,
+            176,
+            178.208
+          ],
+          "snapshotSamples": [
+            465.632,
+            380.104,
+            374.496
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1078192,
+          "samples": [
+            1078192,
+            1030952,
+            1080744
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 2161.536,
+          "samples": [
+            2208.992,
+            2161.536,
+            2159.472
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        }
+      }
+    },
+    {
+      "length": 16,
+      "method": "mySelectionSort3",
+      "category": "custom",
+      "repetitions": 7812,
+      "memoryCount": 1000,
+      "profileCount": 1000,
+      "microsecondsPerOperation": 7.748128264208912,
+      "retainedBytesPerOperation": 176,
+      "heapSnapshotBytesPerOperation": 470.952,
+      "estimatedPeakHeapIncreaseBytes": 1100776,
+      "estimatedAllocatedBytesPerOperation": 2316.6,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 7.748128264208912,
+          "samples": [
+            7.748128264208912,
+            6.807483742959548,
+            7.88085407066052
+          ],
+          "checksum": 749952,
+          "warmupChecksum": 9600
+        },
+        "retained": {
+          "retainedBytesPerOperation": 176,
+          "heapSnapshotBytesPerOperation": 470.952,
+          "samples": [
+            129.64,
+            176,
+            180.096
+          ],
+          "snapshotSamples": [
+            470.952,
+            439.328,
+            691.632
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1100776,
+          "samples": [
+            1100776,
+            1078112,
+            1243520
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 2316.6,
+          "samples": [
+            2331.848,
+            2316.6,
+            2296.552
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        }
+      }
+    },
+    {
+      "length": 16,
+      "method": "mySelectionSort4",
+      "category": "custom",
+      "repetitions": 7812,
+      "memoryCount": 1000,
+      "profileCount": 1000,
+      "microsecondsPerOperation": 5.580374167946749,
+      "retainedBytesPerOperation": 175.952,
+      "heapSnapshotBytesPerOperation": 1564.904,
+      "estimatedPeakHeapIncreaseBytes": 1078080,
+      "estimatedAllocatedBytesPerOperation": 1407.744,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 5.580374167946749,
+          "samples": [
+            6.501217229902715,
+            5.580374167946749,
+            4.931615207373272
+          ],
+          "checksum": 749952,
+          "warmupChecksum": 9600
+        },
+        "retained": {
+          "retainedBytesPerOperation": 175.952,
+          "heapSnapshotBytesPerOperation": 1564.904,
+          "samples": [
+            170.736,
+            175.952,
+            180.096
+          ],
+          "snapshotSamples": [
+            548.56,
+            1565.632,
+            1564.904
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1078080,
+          "samples": [
+            1032976,
+            1078080,
+            1192464
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 1407.744,
+          "samples": [
+            1413.648,
+            1407.744,
+            1406.68
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        }
+      }
+    },
+    {
+      "length": 16,
+      "method": "referenceSelectionSort",
+      "category": "reference",
+      "repetitions": 7812,
+      "memoryCount": 1000,
+      "profileCount": 1000,
+      "microsecondsPerOperation": 3.82460803891449,
+      "retainedBytesPerOperation": 183.952,
+      "heapSnapshotBytesPerOperation": 1330.144,
+      "estimatedPeakHeapIncreaseBytes": 1030968,
+      "estimatedAllocatedBytesPerOperation": 1256.264,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 3.82460803891449,
+          "samples": [
+            4.215071684587816,
+            3.2193320532514065,
+            3.82460803891449
+          ],
+          "checksum": 749952,
+          "warmupChecksum": 9600
+        },
+        "retained": {
+          "retainedBytesPerOperation": 183.952,
+          "heapSnapshotBytesPerOperation": 1330.144,
+          "samples": [
+            182.424,
+            183.952,
+            186.088
+          ],
+          "snapshotSamples": [
+            453.72,
+            1373.208,
+            1330.144
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1030968,
+          "samples": [
+            1100760,
+            1030968,
+            1030968
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 1256.264,
+          "samples": [
+            1232.304,
+            1256.264,
+            1286.688
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        }
+      }
+    },
+    {
+      "length": 16,
+      "method": "nativeNumericSort",
+      "category": "built-in",
+      "repetitions": 7812,
+      "memoryCount": 1000,
+      "profileCount": 1000,
+      "microsecondsPerOperation": 1.2830433947772673,
+      "retainedBytesPerOperation": 176,
+      "heapSnapshotBytesPerOperation": 1347.152,
+      "estimatedPeakHeapIncreaseBytes": 1100688,
+      "estimatedAllocatedBytesPerOperation": 1220.608,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 1.2830433947772673,
+          "samples": [
+            1.9143019713261646,
+            1.2619066820276508,
+            1.2830433947772673
+          ],
+          "checksum": 749952,
+          "warmupChecksum": 9600
+        },
+        "retained": {
+          "retainedBytesPerOperation": 176,
+          "heapSnapshotBytesPerOperation": 1347.152,
+          "samples": [
+            104.6,
+            176,
+            176.056
+          ],
+          "snapshotSamples": [
+            347.624,
+            1503.968,
+            1347.152
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1100688,
+          "samples": [
+            1100688,
+            1078104,
+            1248336
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 1220.608,
+          "samples": [
+            1230.976,
+            1200.392,
+            1220.608
+          ],
+          "checksum": 96000,
+          "warmupChecksum": 9600
+        }
+      }
+    },
+    {
+      "length": 64,
+      "method": "mySelectionSort",
+      "category": "custom",
+      "repetitions": 488,
+      "memoryCount": 1000,
+      "profileCount": 312,
+      "microsecondsPerOperation": 17.155129098360646,
+      "retainedBytesPerOperation": 703.952,
+      "heapSnapshotBytesPerOperation": 2195.8,
+      "estimatedPeakHeapIncreaseBytes": 1030968,
+      "estimatedAllocatedBytesPerOperation": 5344.333333333333,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 17.155129098360646,
+          "samples": [
+            17.155129098360646,
+            16.79410450819674,
+            21.83075000000001
+          ],
+          "checksum": 187392,
+          "warmupChecksum": 38400
+        },
+        "retained": {
+          "retainedBytesPerOperation": 703.952,
+          "heapSnapshotBytesPerOperation": 2195.8,
+          "samples": [
+            479.872,
+            703.952,
+            706.088
+          ],
+          "snapshotSamples": [
+            1320.896,
+            2363.56,
+            2195.8
+          ],
+          "checksum": 384000,
+          "warmupChecksum": 38400
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1030968,
+          "samples": [
+            1030928,
+            1030968,
+            1030968
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 38400
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 5344.333333333333,
+          "samples": [
+            5344.333333333333,
+            5277.128205128205,
+            5448.25641025641
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 38400
+        }
+      }
+    },
+    {
+      "length": 64,
+      "method": "mySelectionSort2",
+      "category": "custom",
+      "repetitions": 488,
+      "memoryCount": 1000,
+      "profileCount": 312,
+      "microsecondsPerOperation": 22.810331967213127,
+      "retainedBytesPerOperation": 560,
+      "heapSnapshotBytesPerOperation": 1745.056,
+      "estimatedPeakHeapIncreaseBytes": 1030968,
+      "estimatedAllocatedBytesPerOperation": 9094.23076923077,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 22.810331967213127,
+          "samples": [
+            22.810331967213127,
+            21.98900819672132,
+            24.818426229508184
+          ],
+          "checksum": 187392,
+          "warmupChecksum": 38400
+        },
+        "retained": {
+          "retainedBytesPerOperation": 560,
+          "heapSnapshotBytesPerOperation": 1745.056,
+          "samples": [
+            330.04,
+            560,
+            562.208
+          ],
+          "snapshotSamples": [
+            768.072,
+            1777.064,
+            1745.056
+          ],
+          "checksum": 384000,
+          "warmupChecksum": 38400
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1030968,
+          "samples": [
+            1030912,
+            1030968,
+            1030968
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 38400
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 9094.23076923077,
+          "samples": [
+            9209.358974358975,
+            9094.23076923077,
+            9083.358974358975
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 38400
+        }
+      }
+    },
+    {
+      "length": 64,
+      "method": "mySelectionSort3",
+      "category": "custom",
+      "repetitions": 488,
+      "memoryCount": 1000,
+      "profileCount": 312,
+      "microsecondsPerOperation": 36.70981352459013,
+      "retainedBytesPerOperation": 559.952,
+      "heapSnapshotBytesPerOperation": 1834.736,
+      "estimatedPeakHeapIncreaseBytes": 1078104,
+      "estimatedAllocatedBytesPerOperation": 9159.71794871795,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 36.70981352459013,
+          "samples": [
+            37.70931762295082,
+            36.70981352459013,
+            34.27064959016392
+          ],
+          "checksum": 187392,
+          "warmupChecksum": 38400
+        },
+        "retained": {
+          "retainedBytesPerOperation": 559.952,
+          "heapSnapshotBytesPerOperation": 1834.736,
+          "samples": [
+            554.176,
+            559.952,
+            564.096
+          ],
+          "snapshotSamples": [
+            942.288,
+            1834.736,
+            1846.12
+          ],
+          "checksum": 384000,
+          "warmupChecksum": 38400
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1078104,
+          "samples": [
+            1077056,
+            1078104,
+            1308232
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 38400
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 9159.71794871795,
+          "samples": [
+            9159.71794871795,
+            9236.820512820514,
+            9075.820512820514
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 38400
+        }
+      }
+    },
+    {
+      "length": 64,
+      "method": "mySelectionSort4",
+      "category": "custom",
+      "repetitions": 488,
+      "memoryCount": 1000,
+      "profileCount": 312,
+      "microsecondsPerOperation": 26.774731557377073,
+      "retainedBytesPerOperation": 559.952,
+      "heapSnapshotBytesPerOperation": 2442.752,
+      "estimatedPeakHeapIncreaseBytes": 1078112,
+      "estimatedAllocatedBytesPerOperation": 5602.4358974358975,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 26.774731557377073,
+          "samples": [
+            27.311299180327854,
+            26.774731557377073,
+            24.861120901639346
+          ],
+          "checksum": 187392,
+          "warmupChecksum": 38400
+        },
+        "retained": {
+          "retainedBytesPerOperation": 559.952,
+          "heapSnapshotBytesPerOperation": 2442.752,
+          "samples": [
+            554.872,
+            559.952,
+            564.096
+          ],
+          "snapshotSamples": [
+            1456.968,
+            2442.752,
+            2449.84
+          ],
+          "checksum": 384000,
+          "warmupChecksum": 38400
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1078112,
+          "samples": [
+            1077056,
+            1078112,
+            1279416
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 38400
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 5602.4358974358975,
+          "samples": [
+            5549.538461538462,
+            5602.4358974358975,
+            5639.641025641025
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 38400
+        }
+      }
+    },
+    {
+      "length": 64,
+      "method": "referenceSelectionSort",
+      "category": "reference",
+      "repetitions": 488,
+      "memoryCount": 1000,
+      "profileCount": 312,
+      "microsecondsPerOperation": 31.568834016393417,
+      "retainedBytesPerOperation": 703.952,
+      "heapSnapshotBytesPerOperation": 2166.928,
+      "estimatedPeakHeapIncreaseBytes": 1030968,
+      "estimatedAllocatedBytesPerOperation": 5347.846153846154,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 31.568834016393417,
+          "samples": [
+            96.27387500000003,
+            31.568834016393417,
+            23.71293032786886
+          ],
+          "checksum": 187392,
+          "warmupChecksum": 38400
+        },
+        "retained": {
+          "retainedBytesPerOperation": 703.952,
+          "heapSnapshotBytesPerOperation": 2166.928,
+          "samples": [
+            498.264,
+            703.952,
+            706.136
+          ],
+          "snapshotSamples": [
+            1312.68,
+            2368.952,
+            2166.928
+          ],
+          "checksum": 384000,
+          "warmupChecksum": 38400
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1030968,
+          "samples": [
+            1030928,
+            1030968,
+            1030968
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 38400
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 5347.846153846154,
+          "samples": [
+            5385.333333333333,
+            5347.846153846154,
+            5327.025641025641
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 38400
+        }
+      }
+    },
+    {
+      "length": 64,
+      "method": "nativeNumericSort",
+      "category": "built-in",
+      "repetitions": 488,
+      "memoryCount": 1000,
+      "profileCount": 312,
+      "microsecondsPerOperation": 8.365049180327867,
+      "retainedBytesPerOperation": 559.952,
+      "heapSnapshotBytesPerOperation": 1105.968,
+      "estimatedPeakHeapIncreaseBytes": 829504,
+      "estimatedAllocatedBytesPerOperation": 2223.5128205128203,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 8.365049180327867,
+          "samples": [
+            8.432545081967186,
+            8.365049180327867,
+            7.948737704918038
+          ],
+          "checksum": 187392,
+          "warmupChecksum": 38400
+        },
+        "retained": {
+          "retainedBytesPerOperation": 559.952,
+          "heapSnapshotBytesPerOperation": 1105.968,
+          "samples": [
+            554.808,
+            559.952,
+            564.104
+          ],
+          "snapshotSamples": [
+            1110.96,
+            1068.552,
+            1105.968
+          ],
+          "checksum": 384000,
+          "warmupChecksum": 38400
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 829504,
+          "samples": [
+            829232,
+            829504,
+            1033416
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 38400
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 2223.5128205128203,
+          "samples": [
+            2305.5384615384614,
+            2223.5128205128203,
+            2176.4615384615386
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 38400
+        }
+      }
+    },
+    {
+      "length": 256,
+      "method": "mySelectionSort",
+      "category": "custom",
+      "repetitions": 30,
+      "memoryCount": 781,
+      "profileCount": 78,
+      "microsecondsPerOperation": 107.7751333333334,
+      "retainedBytesPerOperation": 2911.9385403329065,
+      "heapSnapshotBytesPerOperation": 6785.8847631242,
+      "estimatedPeakHeapIncreaseBytes": 1030472,
+      "estimatedAllocatedBytesPerOperation": 23908.615384615383,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 107.7751333333334,
+          "samples": [
+            107.7751333333334,
+            103.05470000000032,
+            113.31696666666697
+          ],
+          "checksum": 46080,
+          "warmupChecksum": 15360
+        },
+        "retained": {
+          "retainedBytesPerOperation": 2911.9385403329065,
+          "heapSnapshotBytesPerOperation": 6785.8847631242,
+          "samples": [
+            2639.6927016645327,
+            2911.9385403329065,
+            2912.010243277849
+          ],
+          "snapshotSamples": [
+            4950.6376440460945,
+            7322.017925736235,
+            6785.8847631242
+          ],
+          "checksum": 1199616,
+          "warmupChecksum": 15360
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1030472,
+          "samples": [
+            1077064,
+            1030472,
+            1030472
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 15360
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 23908.615384615383,
+          "samples": [
+            23964.923076923078,
+            23834.25641025641,
+            23908.615384615383
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 15360
+        }
+      }
+    },
+    {
+      "length": 256,
+      "method": "mySelectionSort2",
+      "category": "custom",
+      "repetitions": 30,
+      "memoryCount": 781,
+      "profileCount": 78,
+      "microsecondsPerOperation": 134.01753333333346,
+      "retainedBytesPerOperation": 2095.9385403329065,
+      "heapSnapshotBytesPerOperation": 4781.603072983355,
+      "estimatedPeakHeapIncreaseBytes": 1030968,
+      "estimatedAllocatedBytesPerOperation": 38002.97435897436,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 134.01753333333346,
+          "samples": [
+            152.75409999999994,
+            134.01753333333346,
+            131.71906666666663
+          ],
+          "checksum": 46080,
+          "warmupChecksum": 15360
+        },
+        "retained": {
+          "retainedBytesPerOperation": 2095.9385403329065,
+          "heapSnapshotBytesPerOperation": 4781.603072983355,
+          "samples": [
+            2009.4647887323943,
+            2095.9385403329065,
+            2096.0717029449424
+          ],
+          "snapshotSamples": [
+            3269.234314980794,
+            4781.603072983355,
+            9414.145966709348
+          ],
+          "checksum": 1199616,
+          "warmupChecksum": 15360
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1030968,
+          "samples": [
+            1034144,
+            1030968,
+            1030968
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 15360
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 38002.97435897436,
+          "samples": [
+            38002.97435897436,
+            38044.717948717946,
+            36673.846153846156
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 15360
+        }
+      }
+    },
+    {
+      "length": 256,
+      "method": "mySelectionSort3",
+      "category": "custom",
+      "repetitions": 30,
+      "memoryCount": 781,
+      "profileCount": 78,
+      "microsecondsPerOperation": 305.63229999999965,
+      "retainedBytesPerOperation": 2095.9385403329065,
+      "heapSnapshotBytesPerOperation": 4927.620998719591,
+      "estimatedPeakHeapIncreaseBytes": 1079600,
+      "estimatedAllocatedBytesPerOperation": 37620.51282051282,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 305.63229999999965,
+          "samples": [
+            305.63229999999965,
+            277.8331333333332,
+            329.59199999999953
+          ],
+          "checksum": 46080,
+          "warmupChecksum": 15360
+        },
+        "retained": {
+          "retainedBytesPerOperation": 2095.9385403329065,
+          "heapSnapshotBytesPerOperation": 4927.620998719591,
+          "samples": [
+            2089.3213828425096,
+            2095.9385403329065,
+            2096.010243277849
+          ],
+          "snapshotSamples": [
+            3458.3969270166453,
+            4927.620998719591,
+            9556.537772087067
+          ],
+          "checksum": 1199616,
+          "warmupChecksum": 15360
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1079600,
+          "samples": [
+            1079600,
+            1072928,
+            1297384
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 15360
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 37620.51282051282,
+          "samples": [
+            37970.05128205128,
+            37620.51282051282,
+            37150.153846153844
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 15360
+        }
+      }
+    },
+    {
+      "length": 256,
+      "method": "mySelectionSort4",
+      "category": "custom",
+      "repetitions": 30,
+      "memoryCount": 781,
+      "profileCount": 78,
+      "microsecondsPerOperation": 246.67906666666684,
+      "retainedBytesPerOperation": 2095.9385403329065,
+      "heapSnapshotBytesPerOperation": 6071.098591549296,
+      "estimatedPeakHeapIncreaseBytes": 1075888,
+      "estimatedAllocatedBytesPerOperation": 23214.25641025641,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 246.67906666666684,
+          "samples": [
+            246.67906666666684,
+            210.53976666666662,
+            287.37113333333326
+          ],
+          "checksum": 46080,
+          "warmupChecksum": 15360
+        },
+        "retained": {
+          "retainedBytesPerOperation": 2095.9385403329065,
+          "heapSnapshotBytesPerOperation": 6071.098591549296,
+          "samples": [
+            2089.393085787452,
+            2095.9385403329065,
+            2096.010243277849
+          ],
+          "snapshotSamples": [
+            4790.268886043534,
+            6071.098591549296,
+            10414.30985915493
+          ],
+          "checksum": 1199616,
+          "warmupChecksum": 15360
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1075888,
+          "samples": [
+            1075888,
+            1073144,
+            1196944
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 15360
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 23214.25641025641,
+          "samples": [
+            23479.79487179487,
+            23214.25641025641,
+            23013.4358974359
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 15360
+        }
+      }
+    },
+    {
+      "length": 256,
+      "method": "referenceSelectionSort",
+      "category": "reference",
+      "repetitions": 30,
+      "memoryCount": 781,
+      "profileCount": 78,
+      "microsecondsPerOperation": 217.55130000000045,
+      "retainedBytesPerOperation": 2911.9385403329065,
+      "heapSnapshotBytesPerOperation": 6785.8847631242,
+      "estimatedPeakHeapIncreaseBytes": 1030472,
+      "estimatedAllocatedBytesPerOperation": 22941.94871794872,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 217.55130000000045,
+          "samples": [
+            292.3448666666663,
+            217.55130000000045,
+            195.0079999999995
+          ],
+          "checksum": 46080,
+          "warmupChecksum": 15360
+        },
+        "retained": {
+          "retainedBytesPerOperation": 2911.9385403329065,
+          "heapSnapshotBytesPerOperation": 6785.8847631242,
+          "samples": [
+            2594.796414852753,
+            2911.9385403329065,
+            2912.010243277849
+          ],
+          "snapshotSamples": [
+            3951.2419974391805,
+            7322.017925736235,
+            6785.8847631242
+          ],
+          "checksum": 1199616,
+          "warmupChecksum": 15360
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1030472,
+          "samples": [
+            1030904,
+            1030472,
+            1030472
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 15360
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 22941.94871794872,
+          "samples": [
+            22941.94871794872,
+            22916.82051282051,
+            23204.82051282051
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 15360
+        }
+      }
+    },
+    {
+      "length": 256,
+      "method": "nativeNumericSort",
+      "category": "built-in",
+      "repetitions": 30,
+      "memoryCount": 781,
+      "profileCount": 78,
+      "microsecondsPerOperation": 60.986633333333394,
+      "retainedBytesPerOperation": 2095.9385403329065,
+      "heapSnapshotBytesPerOperation": 3834.233034571063,
+      "estimatedPeakHeapIncreaseBytes": 604272,
+      "estimatedAllocatedBytesPerOperation": 6933.4358974358975,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 60.986633333333394,
+          "samples": [
+            46.162233333333326,
+            66.34713333333337,
+            60.986633333333394
+          ],
+          "checksum": 46080,
+          "warmupChecksum": 15360
+        },
+        "retained": {
+          "retainedBytesPerOperation": 2095.9385403329065,
+          "heapSnapshotBytesPerOperation": 3834.233034571063,
+          "samples": [
+            2089.5467349551855,
+            2095.9385403329065,
+            2096.010243277849
+          ],
+          "snapshotSamples": [
+            2766.1152368758003,
+            3881.946222791293,
+            3834.233034571063
+          ],
+          "checksum": 1199616,
+          "warmupChecksum": 15360
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 604272,
+          "samples": [
+            637832,
+            603376,
+            604272
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 15360
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 6933.4358974358975,
+          "samples": [
+            6933.4358974358975,
+            7127.076923076923,
+            6710.871794871795
+          ],
+          "checksum": 119808,
+          "warmupChecksum": 15360
+        }
+      }
+    },
+    {
+      "length": 1024,
+      "method": "mySelectionSort",
+      "category": "custom",
+      "repetitions": 3,
+      "memoryCount": 256,
+      "profileCount": 20,
+      "microsecondsPerOperation": 1147.8366666666677,
+      "retainedBytesPerOperation": 10359.8125,
+      "heapSnapshotBytesPerOperation": 16176.90625,
+      "estimatedPeakHeapIncreaseBytes": 1030968,
+      "estimatedAllocatedBytesPerOperation": 94170,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 1147.8366666666677,
+          "samples": [
+            1147.8366666666677,
+            1571.1059999999954,
+            1094.131333333337
+          ],
+          "checksum": 18432,
+          "warmupChecksum": 20480
+        },
+        "retained": {
+          "retainedBytesPerOperation": 10359.8125,
+          "heapSnapshotBytesPerOperation": 16176.90625,
+          "samples": [
+            9521.71875,
+            10359.8125,
+            10360.03125
+          ],
+          "snapshotSamples": [
+            11022,
+            29040,
+            16176.90625
+          ],
+          "checksum": 1572864,
+          "warmupChecksum": 20480
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1030968,
+          "samples": [
+            1248776,
+            1030968,
+            1030792
+          ],
+          "checksum": 122880,
+          "warmupChecksum": 20480
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 94170,
+          "samples": [
+            95161.6,
+            93459.6,
+            94170
+          ],
+          "checksum": 122880,
+          "warmupChecksum": 20480
+        }
+      }
+    },
+    {
+      "length": 1024,
+      "method": "mySelectionSort2",
+      "category": "custom",
+      "repetitions": 3,
+      "memoryCount": 256,
+      "profileCount": 20,
+      "microsecondsPerOperation": 1278.207333333332,
+      "retainedBytesPerOperation": 8239.8125,
+      "heapSnapshotBytesPerOperation": 21058.59375,
+      "estimatedPeakHeapIncreaseBytes": 1039200,
+      "estimatedAllocatedBytesPerOperation": 150455.6,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 1278.207333333332,
+          "samples": [
+            1169.491000000003,
+            1278.207333333332,
+            1313.4020000000012
+          ],
+          "checksum": 18432,
+          "warmupChecksum": 20480
+        },
+        "retained": {
+          "retainedBytesPerOperation": 8239.8125,
+          "heapSnapshotBytesPerOperation": 21058.59375,
+          "samples": [
+            8218,
+            8239.8125,
+            8240.03125
+          ],
+          "snapshotSamples": [
+            18352.25,
+            21058.59375,
+            34805.125
+          ],
+          "checksum": 1572864,
+          "warmupChecksum": 20480
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1039200,
+          "samples": [
+            1030920,
+            1039200,
+            2061800
+          ],
+          "checksum": 122880,
+          "warmupChecksum": 20480
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 150455.6,
+          "samples": [
+            150624,
+            150455.6,
+            148781.6
+          ],
+          "checksum": 122880,
+          "warmupChecksum": 20480
+        }
+      }
+    },
+    {
+      "length": 1024,
+      "method": "mySelectionSort3",
+      "category": "custom",
+      "repetitions": 3,
+      "memoryCount": 256,
+      "profileCount": 20,
+      "microsecondsPerOperation": 1567.2833333333358,
+      "retainedBytesPerOperation": 8239.8125,
+      "heapSnapshotBytesPerOperation": 21244.5,
+      "estimatedPeakHeapIncreaseBytes": 1211040,
+      "estimatedAllocatedBytesPerOperation": 148492.4,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 1567.2833333333358,
+          "samples": [
+            1818.7850000000008,
+            1567.2833333333358,
+            1555.923666666672
+          ],
+          "checksum": 18432,
+          "warmupChecksum": 20480
+        },
+        "retained": {
+          "retainedBytesPerOperation": 8239.8125,
+          "heapSnapshotBytesPerOperation": 21244.5,
+          "samples": [
+            7307.09375,
+            8239.8125,
+            8240.03125
+          ],
+          "snapshotSamples": [
+            18699.3125,
+            21244.5,
+            34958.375
+          ],
+          "checksum": 1572864,
+          "warmupChecksum": 20480
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1211040,
+          "samples": [
+            1080096,
+            1211040,
+            2103760
+          ],
+          "checksum": 122880,
+          "warmupChecksum": 20480
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 148492.4,
+          "samples": [
+            148492.4,
+            149598.4,
+            148209.6
+          ],
+          "checksum": 122880,
+          "warmupChecksum": 20480
+        }
+      }
+    },
+    {
+      "length": 1024,
+      "method": "mySelectionSort4",
+      "category": "custom",
+      "repetitions": 3,
+      "memoryCount": 256,
+      "profileCount": 20,
+      "microsecondsPerOperation": 1988.6770000000051,
+      "retainedBytesPerOperation": 8239.8125,
+      "heapSnapshotBytesPerOperation": 12033.96875,
+      "estimatedPeakHeapIncreaseBytes": 1069296,
+      "estimatedAllocatedBytesPerOperation": 91911.6,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 1988.6770000000051,
+          "samples": [
+            2060.876666666663,
+            1976.0470000000034,
+            1988.6770000000051
+          ],
+          "checksum": 18432,
+          "warmupChecksum": 20480
+        },
+        "retained": {
+          "retainedBytesPerOperation": 8239.8125,
+          "heapSnapshotBytesPerOperation": 12033.96875,
+          "samples": [
+            7434.96875,
+            8239.8125,
+            8240.03125
+          ],
+          "snapshotSamples": [
+            9357.6875,
+            26740.09375,
+            12033.96875
+          ],
+          "checksum": 1572864,
+          "warmupChecksum": 20480
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1069296,
+          "samples": [
+            1069296,
+            1261648,
+            1067048
+          ],
+          "checksum": 122880,
+          "warmupChecksum": 20480
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 91911.6,
+          "samples": [
+            91911.6,
+            91680.4,
+            93160
+          ],
+          "checksum": 122880,
+          "warmupChecksum": 20480
+        }
+      }
+    },
+    {
+      "length": 1024,
+      "method": "referenceSelectionSort",
+      "category": "reference",
+      "repetitions": 3,
+      "memoryCount": 256,
+      "profileCount": 20,
+      "microsecondsPerOperation": 1261.7699999999984,
+      "retainedBytesPerOperation": 10359.8125,
+      "heapSnapshotBytesPerOperation": 16162.25,
+      "estimatedPeakHeapIncreaseBytes": 1030912,
+      "estimatedAllocatedBytesPerOperation": 93518.4,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 1261.7699999999984,
+          "samples": [
+            1261.7699999999984,
+            1191.3413333333363,
+            1335.1959999999963
+          ],
+          "checksum": 18432,
+          "warmupChecksum": 20480
+        },
+        "retained": {
+          "retainedBytesPerOperation": 10359.8125,
+          "heapSnapshotBytesPerOperation": 16162.25,
+          "samples": [
+            9521.53125,
+            10359.8125,
+            10360.03125
+          ],
+          "snapshotSamples": [
+            11410.3125,
+            28884.65625,
+            16162.25
+          ],
+          "checksum": 1572864,
+          "warmupChecksum": 20480
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1030912,
+          "samples": [
+            1030912,
+            1030968,
+            1030792
+          ],
+          "checksum": 122880,
+          "warmupChecksum": 20480
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 93518.4,
+          "samples": [
+            93518.4,
+            94217.6,
+            92798.4
+          ],
+          "checksum": 122880,
+          "warmupChecksum": 20480
+        }
+      }
+    },
+    {
+      "length": 1024,
+      "method": "nativeNumericSort",
+      "category": "built-in",
+      "repetitions": 3,
+      "memoryCount": 256,
+      "profileCount": 20,
+      "microsecondsPerOperation": 482.36966666666586,
+      "retainedBytesPerOperation": 8239.8125,
+      "heapSnapshotBytesPerOperation": 17241.53125,
+      "estimatedPeakHeapIncreaseBytes": 592704,
+      "estimatedAllocatedBytesPerOperation": 26915.2,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 482.36966666666586,
+          "samples": [
+            482.36966666666586,
+            480.48766666666626,
+            564.9099999999976
+          ],
+          "checksum": 18432,
+          "warmupChecksum": 20480
+        },
+        "retained": {
+          "retainedBytesPerOperation": 8239.8125,
+          "heapSnapshotBytesPerOperation": 17241.53125,
+          "samples": [
+            8219.40625,
+            8239.8125,
+            8240.03125
+          ],
+          "snapshotSamples": [
+            9988.28125,
+            17241.53125,
+            28318
+          ],
+          "checksum": 1572864,
+          "warmupChecksum": 20480
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 592704,
+          "samples": [
+            592704,
+            782528,
+            589896
+          ],
+          "checksum": 122880,
+          "warmupChecksum": 20480
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 26915.2,
+          "samples": [
+            26846.4,
+            26915.2,
+            27022.8
+          ],
+          "checksum": 122880,
+          "warmupChecksum": 20480
+        }
+      }
+    },
+    {
+      "length": 2048,
+      "method": "mySelectionSort",
+      "category": "custom",
+      "repetitions": 3,
+      "memoryCount": 256,
+      "profileCount": 20,
+      "microsecondsPerOperation": 2779.0893333333315,
+      "retainedBytesPerOperation": 23599.8125,
+      "heapSnapshotBytesPerOperation": 45398.15625,
+      "estimatedPeakHeapIncreaseBytes": 2057144,
+      "estimatedAllocatedBytesPerOperation": 197010.4,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 2779.0893333333315,
+          "samples": [
+            2861.4739999999965,
+            2779.0893333333315,
+            2653.1353333333336
+          ],
+          "checksum": 36864,
+          "warmupChecksum": 40960
+        },
+        "retained": {
+          "retainedBytesPerOperation": 23599.8125,
+          "heapSnapshotBytesPerOperation": 45398.15625,
+          "samples": [
+            22795.25,
+            23599.8125,
+            23600.03125
+          ],
+          "snapshotSamples": [
+            29495.75,
+            45398.15625,
+            45768.09375
+          ],
+          "checksum": 3145728,
+          "warmupChecksum": 40960
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 2057144,
+          "samples": [
+            2057944,
+            2057144,
+            2057136
+          ],
+          "checksum": 245760,
+          "warmupChecksum": 40960
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 197010.4,
+          "samples": [
+            197010.4,
+            196658.4,
+            202471.6
+          ],
+          "checksum": 245760,
+          "warmupChecksum": 40960
+        }
+      }
+    },
+    {
+      "length": 2048,
+      "method": "mySelectionSort2",
+      "category": "custom",
+      "repetitions": 3,
+      "memoryCount": 256,
+      "profileCount": 20,
+      "microsecondsPerOperation": 4044.306999999994,
+      "retainedBytesPerOperation": 16431.8125,
+      "heapSnapshotBytesPerOperation": 19642.96875,
+      "estimatedPeakHeapIncreaseBytes": 2055264,
+      "estimatedAllocatedBytesPerOperation": 307437.6,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 4044.306999999994,
+          "samples": [
+            4167.435000000002,
+            3887.2816666666663,
+            4044.306999999994
+          ],
+          "checksum": 36864,
+          "warmupChecksum": 40960
+        },
+        "retained": {
+          "retainedBytesPerOperation": 16431.8125,
+          "heapSnapshotBytesPerOperation": 19642.96875,
+          "samples": [
+            16365.84375,
+            16431.8125,
+            16432.03125
+          ],
+          "snapshotSamples": [
+            17179.15625,
+            51462.5625,
+            19642.96875
+          ],
+          "checksum": 3145728,
+          "warmupChecksum": 40960
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 2055264,
+          "samples": [
+            2057568,
+            2055264,
+            2055088
+          ],
+          "checksum": 245760,
+          "warmupChecksum": 40960
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 307437.6,
+          "samples": [
+            306338.8,
+            309628.4,
+            307437.6
+          ],
+          "checksum": 245760,
+          "warmupChecksum": 40960
+        }
+      }
+    },
+    {
+      "length": 2048,
+      "method": "mySelectionSort3",
+      "category": "custom",
+      "repetitions": 3,
+      "memoryCount": 256,
+      "profileCount": 20,
+      "microsecondsPerOperation": 4950.224000000001,
+      "retainedBytesPerOperation": 16431.8125,
+      "heapSnapshotBytesPerOperation": 19762.8125,
+      "estimatedPeakHeapIncreaseBytes": 2120296,
+      "estimatedAllocatedBytesPerOperation": 308952,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 4950.224000000001,
+          "samples": [
+            4950.224000000001,
+            4605.108333333334,
+            4994.960000000002
+          ],
+          "checksum": 36864,
+          "warmupChecksum": 40960
+        },
+        "retained": {
+          "retainedBytesPerOperation": 16431.8125,
+          "heapSnapshotBytesPerOperation": 19762.8125,
+          "samples": [
+            16402.59375,
+            16431.8125,
+            16432.03125
+          ],
+          "snapshotSamples": [
+            17007.90625,
+            51647.59375,
+            19762.8125
+          ],
+          "checksum": 3145728,
+          "warmupChecksum": 40960
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 2120296,
+          "samples": [
+            2120296,
+            2338864,
+            2118320
+          ],
+          "checksum": 245760,
+          "warmupChecksum": 40960
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 308952,
+          "samples": [
+            308952,
+            306872,
+            311242.4
+          ],
+          "checksum": 245760,
+          "warmupChecksum": 40960
+        }
+      }
+    },
+    {
+      "length": 2048,
+      "method": "mySelectionSort4",
+      "category": "custom",
+      "repetitions": 3,
+      "memoryCount": 256,
+      "profileCount": 20,
+      "microsecondsPerOperation": 4254.228000000002,
+      "retainedBytesPerOperation": 16431.8125,
+      "heapSnapshotBytesPerOperation": 35073.53125,
+      "estimatedPeakHeapIncreaseBytes": 2107120,
+      "estimatedAllocatedBytesPerOperation": 192452,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 4254.228000000002,
+          "samples": [
+            4012.827666666671,
+            4430.719999999998,
+            4254.228000000002
+          ],
+          "checksum": 36864,
+          "warmupChecksum": 40960
+        },
+        "retained": {
+          "retainedBytesPerOperation": 16431.8125,
+          "heapSnapshotBytesPerOperation": 35073.53125,
+          "samples": [
+            16394.28125,
+            16431.8125,
+            16432.03125
+          ],
+          "snapshotSamples": [
+            35460.25,
+            35073.53125,
+            31780.46875
+          ],
+          "checksum": 3145728,
+          "warmupChecksum": 40960
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 2107120,
+          "samples": [
+            2107120,
+            2316832,
+            2102424
+          ],
+          "checksum": 245760,
+          "warmupChecksum": 40960
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 192452,
+          "samples": [
+            191736,
+            194306.4,
+            192452
+          ],
+          "checksum": 245760,
+          "warmupChecksum": 40960
+        }
+      }
+    },
+    {
+      "length": 2048,
+      "method": "referenceSelectionSort",
+      "category": "reference",
+      "repetitions": 3,
+      "memoryCount": 256,
+      "profileCount": 20,
+      "microsecondsPerOperation": 3680.272000000002,
+      "retainedBytesPerOperation": 23599.8125,
+      "heapSnapshotBytesPerOperation": 45168.5,
+      "estimatedPeakHeapIncreaseBytes": 2057136,
+      "estimatedAllocatedBytesPerOperation": 198806.4,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 3680.272000000002,
+          "samples": [
+            3680.272000000002,
+            3519.6623333333337,
+            5736.159333333338
+          ],
+          "checksum": 36864,
+          "warmupChecksum": 40960
+        },
+        "retained": {
+          "retainedBytesPerOperation": 23599.8125,
+          "heapSnapshotBytesPerOperation": 45168.5,
+          "samples": [
+            23533.84375,
+            23599.8125,
+            23600.03125
+          ],
+          "snapshotSamples": [
+            30547.90625,
+            45168.5,
+            45768.09375
+          ],
+          "checksum": 3145728,
+          "warmupChecksum": 40960
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 2057136,
+          "samples": [
+            2056848,
+            2057144,
+            2057136
+          ],
+          "checksum": 245760,
+          "warmupChecksum": 40960
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 198806.4,
+          "samples": [
+            201327.6,
+            198806.4,
+            195825.6
+          ],
+          "checksum": 245760,
+          "warmupChecksum": 40960
+        }
+      }
+    },
+    {
+      "length": 2048,
+      "method": "nativeNumericSort",
+      "category": "built-in",
+      "repetitions": 3,
+      "memoryCount": 256,
+      "profileCount": 20,
+      "microsecondsPerOperation": 713.5976666666675,
+      "retainedBytesPerOperation": 16431.8125,
+      "heapSnapshotBytesPerOperation": 18913.25,
+      "estimatedPeakHeapIncreaseBytes": 1067376,
+      "estimatedAllocatedBytesPerOperation": 52591.6,
+      "phases": {
+        "runtime": {
+          "microsecondsPerOperation": 713.5976666666675,
+          "samples": [
+            1065.8680000000043,
+            648.9059999999967,
+            713.5976666666675
+          ],
+          "checksum": 36864,
+          "warmupChecksum": 40960
+        },
+        "retained": {
+          "retainedBytesPerOperation": 16431.8125,
+          "heapSnapshotBytesPerOperation": 18913.25,
+          "samples": [
+            15576.15625,
+            16431.8125,
+            16432.03125
+          ],
+          "snapshotSamples": [
+            18913.25,
+            18196.5625,
+            55436.96875
+          ],
+          "checksum": 3145728,
+          "warmupChecksum": 40960
+        },
+        "peak": {
+          "estimatedPeakHeapIncreaseBytes": 1067376,
+          "samples": [
+            1065752,
+            1179632,
+            1067376
+          ],
+          "checksum": 245760,
+          "warmupChecksum": 40960
+        },
+        "allocations": {
+          "estimatedAllocatedBytesPerOperation": 52591.6,
+          "samples": [
+            52522.4,
+            53005.2,
+            52591.6
+          ],
+          "checksum": 245760,
+          "warmupChecksum": 40960
+        }
+      }
+    }
+  ]
+}
