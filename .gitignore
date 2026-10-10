@@ -52,3 +52,6 @@ __pycache__
 .Rhistory
 .RData
 .Ruserdata
+
+# Raw allocation profiles are reproducible and can be large.
+**/benchmark-profiles/
