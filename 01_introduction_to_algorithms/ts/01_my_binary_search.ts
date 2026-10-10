@@ -1,3 +1,5 @@
+// Push-based construction: O(n) time/output space. Simple, but growth may
+// allocate spare capacity. Actual findings: array-creation-analysis.md.
 const numberList = (maxListNumber: number): number[] => {
   const list: number[] = []
 
@@ -8,9 +10,15 @@ const numberList = (maxListNumber: number): number[] => {
   return list
 }
 
+// Array.from mapping: O(n) time/output space. Concise; callback overhead may
+// increase runtime even when retained memory matches preallocation.
+// Actual findings: array-creation-analysis.md.
 const numberListWithArrCon = (length: number): number[] =>
   Array.from({ length }, (_, index) => index + 1)
 
+// Preallocated loop: O(n) time/output space. Avoids push growth, but engine
+// behavior and small-input overhead can reverse the expected runtime advantage.
+// Actual findings: array-creation-analysis.md.
 const numberPreallocatedList = (length: number): number[] => {
   const list = new Array<number>(length)
 
