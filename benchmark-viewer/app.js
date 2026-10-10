@@ -2,16 +2,16 @@
 
 // Plain DOM and SVG APIs: no chart libraries or external dependencies.
 const source = "../01_introduction_to_algorithms/ts/benchmark-results.json"
-const methods = {
-  push: { label: "Push", color: "#1764bd", dash: "" },
-  preallocated: { label: "Preallocated", color: "#087e66", dash: "8 4" },
-  arrayFrom: { label: "Array.from", color: "#ae4b0d", dash: "2 4" },
-}
-const metrics = {
-  microsecondsPerArray: { title: "Runtime", unit: "µs per array", note: "Median construction time per array. Includes allocation and automatic garbage collection pauses." },
+let methods = Object.create(null)
+const palette = ["#1764bd", "#087e66", "#ae4b0d", "#8054bd", "#b53665"]
+const labels = { push: "Push", preallocated: "Preallocated", arrayFrom: "Array.from" }
+let manualFileSelected = false
+const legacyMetrics = {
+  runtimePerOperation: { title: "Runtime", unit: "µs per operation", note: "Median time per operation. Includes allocation and automatic garbage collection pauses." },
   constructionBytesPerArray: { title: "Heap at construction end", unit: "bytes per array", note: "Approximate heap growth before explicit garbage collection. This is not peak memory or total allocated bytes." },
   retainedBytesPerArray: { title: "Retained heap", unit: "bytes per array", note: "Approximate heap growth after garbage collection while the completed arrays remain in use." },
 }
+let metrics = legacyMetrics
 let data = null
 const $ = id => document.getElementById(id)
 const format = value => value.toLocaleString(undefined, { maximumFractionDigits: 3 })
@@ -27,22 +27,39 @@ function validate(candidate) {
   if (!candidate || !Array.isArray(candidate.rows) || !candidate.rows.length) {
     throw new Error("The file must contain a nonempty rows array.")
   }
+  const modern = candidate.schemaVersion === 2
+  const runtimeField = Number.isFinite(candidate.rows[0]?.microsecondsPerSort)
+    ? "microsecondsPerSort" : "microsecondsPerArray"
+  const definitions = modern ? candidate.metrics : null
+  if (modern && (!Array.isArray(definitions) || !definitions.length || definitions.some(metric =>
+      !metric || typeof metric.key !== "string" || !/^[a-zA-Z][a-zA-Z0-9]*$/.test(metric.key) ||
+      typeof metric.label !== "string" || typeof metric.unit !== "string" || typeof metric.description !== "string") ||
+      new Set(definitions.map(metric => metric.key)).size !== definitions.length)) {
+    throw new Error("Invalid metric definitions.")
+  }
+  const fields = modern ? definitions.map(metric => metric.key)
+    : [runtimeField, "constructionBytesPerArray", "retainedBytesPerArray"]
   const seen = new Set()
   for (const row of candidate.rows) {
     const key = row ? `${row.method}:${row.length}` : "invalid"
-    if (!row || !Object.hasOwn(methods, row.method) || !Number.isInteger(row.length) || row.length <= 0 ||
-        !Object.keys(metrics).every(metric => Number.isFinite(row[metric])) || seen.has(key)) {
+    if (!row || typeof row.method !== "string" || !row.method.trim() || !Number.isInteger(row.length) || row.length <= 0 ||
+        !fields.every(field => Number.isFinite(row[field])) || seen.has(key)) {
       throw new Error("Invalid or duplicate benchmark row.")
     }
     seen.add(key)
   }
-  return candidate
+  return { ...candidate, runtimeField, modern,
+    rows: modern ? candidate.rows : candidate.rows.map(row => ({ ...row, runtimePerOperation: row[runtimeField] })) }
+
 }
 
 function render() {
   if (!data) return
+  // Browsers may restore a select value from an earlier version of the page.
+  if (!Object.hasOwn(metrics, $("metric").value)) $("metric").value = Object.keys(metrics)[0]
   const metric = $("metric").value
   const info = metrics[metric]
+  const showBatchCount = metric === "estimatedPeakHeapIncreaseBytes"
   const selected = [...document.querySelectorAll('fieldset input:checked')].map(input => input.value)
   const sizes = [...new Set(data.rows.map(row => row.length))].sort((a, b) => a - b)
   const visible = data.rows.filter(row => selected.includes(row.method))
@@ -52,7 +69,7 @@ function render() {
 
   // Build an accessible table containing the same visible series as the chart.
   const header = document.createElement("tr")
-  for (const name of ["List length", ...selected.map(method => methods[method].label)]) {
+  for (const name of ["List length", ...(showBatchCount ? ["Operations per batch"] : []), ...selected.map(method => methods[method].label)]) {
     const cell = document.createElement("th")
     cell.scope = "col"
     cell.textContent = name
@@ -67,6 +84,11 @@ function render() {
     heading.scope = "row"
     heading.textContent = length
     tr.append(heading)
+    if (showBatchCount) {
+      const cell = document.createElement("td")
+      cell.textContent = data.rows.find(row => row.length === length)?.profileCount ?? "—"
+      tr.append(cell)
+    }
     for (const method of selected) {
       const row = visible.find(row => row.length === length && row.method === method)
       const td = document.createElement("td")
@@ -148,7 +170,52 @@ function render() {
 }
 
 function load(candidate, label) {
-  data = validate(candidate)
+  const next = validate(candidate)
+  data = next
+  const sorting = data.runtimeField === "microsecondsPerSort"
+  const previousMetric = $("metric").value
+  metrics = data.modern
+    ? Object.fromEntries(data.metrics.map(metric => [metric.key, { title: metric.label, unit: metric.unit, note: metric.description }]))
+    : Object.fromEntries(Object.entries(legacyMetrics).map(([key, info]) => [key, { ...info }]))
+  if (!data.modern) {
+    metrics.runtimePerOperation.unit = sorting ? "µs per sort" : "µs per array"
+    metrics.runtimePerOperation.note = sorting
+      ? "Median sorting time, including the fresh input copy and automatic garbage collection pauses."
+      : "Median array construction time, including allocation and automatic garbage collection pauses."
+    metrics.constructionBytesPerArray.title = "Heap snapshot after construction"
+  }
+  const metricSelect = $("metric")
+  metricSelect.replaceChildren()
+  for (const [key, info] of Object.entries(metrics)) {
+    const option = document.createElement("option")
+    option.value = key
+    option.textContent = `${info.title} · ${info.unit}`
+    metricSelect.append(option)
+  }
+  metricSelect.value = Object.hasOwn(metrics, previousMetric) ? previousMetric : Object.keys(metrics)[0]
+  $("page-heading").textContent = data.modern ? `${data.metadata?.title || "Algorithm"} benchmarks`
+    : sorting ? "Selection sort benchmarks" : "Array creation benchmarks"
+  $("page-description").textContent = "Compare runtime, retained memory, estimated peak heap, and allocation volume. Available measurements depend on the loaded file."
+  methods = Object.create(null)
+  const controls = $("method-controls")
+  controls.replaceChildren()
+  const methodNames = [...new Set(data.rows.map(row => row.method))]
+  methodNames.forEach((name, index) => {
+    const category = data.rows.find(row => row.method === name)?.category
+    const style = { label: (Object.hasOwn(labels, name) ? labels[name] : name) + (category ? ` (${category})` : ""),
+      color: palette[index % palette.length], dash: ["", "8 4", "2 4", "10 3 2 3"][index % 4] }
+    methods[name] = style
+    const label = document.createElement("label")
+    label.className = "method"
+    label.style.color = style.color
+    const input = document.createElement("input")
+    input.type = "checkbox"
+    input.value = name
+    input.checked = true
+    input.addEventListener("change", render)
+    label.append(input, document.createTextNode(style.label))
+    controls.append(label)
+  })
   const meta = data.metadata || {}
   $("metadata").textContent = `${label} · ${meta.node || "Unknown Node version"} · ${meta.platform || "Unknown platform"}${meta.measuredAt ? ` · Measured ${meta.measuredAt}` : ""}`
   render()
@@ -159,15 +226,17 @@ for (const control of document.querySelectorAll(".controls input, .controls sele
 $("file").addEventListener("change", async event => {
   const file = event.target.files[0]
   if (!file) return
+  manualFileSelected = true
   try { load(JSON.parse(await file.text()), file.name) }
   catch (error) { $("status").textContent = `Could not load file: ${error.message}` }
 })
-fetch(source)
+fetch(source, { cache: "no-store" })
   .then(response => {
     if (!response.ok) throw new Error(`HTTP ${response.status}`)
     return response.json()
   })
-  .then(candidate => load(candidate, "Repository benchmark"))
-  .catch(() => {
-    $("status").textContent = "Could not load data automatically. Start the local server described in README.md, or choose your benchmark-results.json file below."
+  .then(candidate => { if (!manualFileSelected) load(candidate, "Repository benchmark") })
+  .catch(error => {
+    if (manualFileSelected) return
+    $("status").textContent = `Could not load data automatically: ${error.message}. Start the local server described in README.md, or choose your benchmark-results.json file below.`
   })

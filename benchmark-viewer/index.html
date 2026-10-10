@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Array creation benchmarks</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
+  <title>Algorithm benchmarks</title>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <script src="app.js?v=5" defer></script>
 </head>
 <body>
   <main>
     <header>
       <p class="eyebrow">ALGORITHM LAB</p>
-      <h1>Array creation benchmarks</h1>
-      <p>Compare the time and memory needed to build sorted number lists.</p>
+      <h1 id="page-heading">Array creation benchmarks</h1>
+      <p id="page-description">Compare the time and memory needed to build sorted number lists.</p>
       <p id="metadata" class="muted"></p>
     </header>
     <section class="controls" aria-label="Chart controls">
       <label>Measurement
         <select id="metric">
-          <option value="microsecondsPerArray">Runtime · µs per array</option>
-          <option value="constructionBytesPerArray">Construction-end heap · bytes per array</option>
+          <option value="runtimePerOperation">Runtime · µs per array</option>
+          <option value="constructionBytesPerArray">Heap snapshot after construction · bytes per array</option>
           <option value="retainedBytesPerArray">Retained heap · bytes per array</option>
         </select>
       </label>
@@ -31,9 +31,7 @@
       </label>
       <fieldset>
         <legend>Visible methods</legend>
-        <label class="method push"><input type="checkbox" value="push" checked> Push</label>
-        <label class="method preallocated"><input type="checkbox" value="preallocated" checked> Preallocated</label>
-        <label class="method arrayFrom"><input type="checkbox" value="arrayFrom" checked> Array.from</label>
+        <div id="method-controls"></div>
       </fieldset>
     </section>
     <p id="status" role="status">Loading benchmark data…</p>
@@ -50,7 +48,7 @@
     <footer>
       <p>Loads <code>../01_introduction_to_algorithms/ts/benchmark-results.json</code>. Rerun the benchmark and refresh this page to update it.</p>
       <label>Or load a benchmark JSON file: <input id="file" type="file" accept=".json,application/json"></label>
-      <p class="muted">Measurements depend on Node version and system load. Construction-end heap is a snapshot, not peak memory or total allocations. All three methods have O(n) time and space complexity.</p>
+      <p class="muted">Measurements depend on Node version and system load. Construction-end heap is a snapshot, not peak memory or total allocations. Peak heap and total allocations are estimates. Peak values are per profiling batch; retained heap and allocations are per operation. See each dataset’s methodology for copy policies and batch counts.</p>
     </footer>
   </main>
 </body>
